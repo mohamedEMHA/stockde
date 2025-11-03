@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Env
+.env
+
+# Airflow
+logs/
+plugins/
+
+# Terraform
+.terraform/
+terraform.tfstate*
+
+# DB & Data
+*.db
+*.db-journal
+
+# IDE
+.vscode/
+.idea/

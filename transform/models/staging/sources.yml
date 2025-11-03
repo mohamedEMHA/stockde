@@ -1,0 +1,37 @@
+version: 2
+
+sources:
+  - name: reddit
+    description: "Raw Reddit posts loaded to BigQuery"
+    database: "{{ target.project }}"
+    schema: "{{ var('raw_dataset', 'reddit_stock_sentiment') }}"
+    tables:
+      - name: raw_posts
+        identifier: raw_reddit_json
+        description: "Raw JSON posts table (external/native)."
+
+models:
+  - name: stg_reddit_posts
+    description: "Cleaned & deduped Reddit posts with timestamps"
+    columns:
+      - name: reddit_id
+        tests:
+          - not_null
+          - unique
+      - name: created_ts
+        tests:
+          - not_null
+      - name: created_date
+        tests:
+          - not_null
+  - name: stg_tickers
+    description: "Extracted tickers per post and simple sentiment label"
+    columns:
+      - name: ticker
+        tests:
+          - not_null
+          - ticker_regex
+      - name: sentiment_label
+        tests:
+          - accepted_values:
+              values: ['POSITIVE','NEGATIVE','NEUTRAL']

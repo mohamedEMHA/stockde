@@ -1,0 +1,4 @@
+Place your Looker Studio screenshot at:
+  docs/looker_screenshot.png
+
+Recommended size: 1280x720 or higher. Ensure the chart labels are readable.

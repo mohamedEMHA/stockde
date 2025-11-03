@@ -1,0 +1,8 @@
+Place the Loom/MP4 walkthrough at:
+  docs/walkthrough.mp4
+
+Suggested content (2 minutes):
+1) Airflow UI: show `dag_ingest_reddit` run success and `dag_dbt_run_and_test` run.
+2) BigQuery: preview rows in `dbt_dev.staging.stg_reddit_posts` and `dbt_dev.marts.mart_stock_mentions`.
+3) Looker Studio: the 3 charts and public share link.
+4) Terraform destroy: show `terraform destroy -auto-approve` output.

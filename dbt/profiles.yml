@@ -1,0 +1,19 @@
+reddit_de:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: "{{ env_var('GCP_PROJECT_ID') }}"
+      dataset: "dbt_dev"
+      location: "{{ env_var('GCP_LOCATION', 'US') }}"
+      threads: 4
+      priority: interactive
+    prod:
+      type: bigquery
+      method: oauth
+      project: "{{ env_var('GCP_PROJECT_ID') }}"
+      dataset: "reddit_marts"
+      location: "{{ env_var('GCP_LOCATION', 'US') }}"
+      threads: 8
+      priority: batch

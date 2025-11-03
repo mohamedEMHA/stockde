@@ -1,0 +1,22 @@
+name: 'reddit_stock_sentiment'
+version: '1.0.0'
+profile: 'reddit_de'
+
+config-version: 2
+
+model-paths: ['models']
+macro-paths: ['macros']
+test-paths: ['tests']
+target-path: 'target'
+log-path: 'logs'
+
+vars:
+  raw_dataset: 'reddit_stock_sentiment'
+
+models:
+  reddit_stock_sentiment:
+    +materialized: table
+    staging:
+      +schema: 'staging'
+    marts:
+      +schema: 'marts'
